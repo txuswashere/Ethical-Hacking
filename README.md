@@ -21,8 +21,6 @@ We must work with the guiding principle of do no harm and strive to perform all 
 
 > *Source: [Practical Ethical Hacking - TCM Security](https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course)*
 
-![Penetration Testing process](../.res/2023-02-07-08-56-37.png)  
-
 > *Source: [Hackethebox Academy](https://academy.hackthebox.com/login)*
 
 ## Precautionary Measure during Pentests
@@ -44,8 +42,7 @@ In addition, we should also be aware that some countries have additional regulat
 
 > *Source: [Practical Ethical Hacking - TCM Security](https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course)*
 
-![docs HTB](../.res/2023-02-08-07-15-00.png)  
-> *Source HTB Academy*
+
 
 - [Example of Master Service Agreement](https://www.rapid7.com/legal/msa/)
 
@@ -317,9 +314,7 @@ The [Payment Card Industry Data Security Standard (PCI DSS)](https://www.pcisecu
 
 PCI DSS requirements include internal and external scanning of assets. For example, any credit card data that is being processed or transmitted must be done in a Cardholder Data Environment (CDE). The CDE environment must be adequately segmented from normal assets. CDE environments are segmented off from an organization's regular environment to protect any cardholder data from being compromised during an attack and limit internal access to data.
 
-![PCI DSS Goals](../.res/2023-03-17-16-24-11.png)
 
-> Image Source: [Adktechs](https://adktechs.com/wp-content/uploads/2019/06/PCI-DSS-Goals.png)
 
 ### Health Insurance Portability and Accountability Act (HIPAA)
 
@@ -430,27 +425,27 @@ In the case of a pentest it will be defined in the document called **Rules of En
 
 ## Discovering email address
 
-- Check this article about [Email OSINT](/OSINT/email.md)
+- Email OSINT
 
 ## Gathering breached credentials
 
-- Check this article about [Password OSINT](/OSINT/password.md)
+- Password OSINT
 
 ## Web information Gathering
 
-- Check this article about [Website OSINT](/OSINT/website.md) and this one about[Tools for website OSINT](/OSINT/tools.md#tools-for-website-osint)
+- Website OSINT
 
 ## Using search engines
 
-- Check out this article about [Search Engines](/OSINT/search-engines.md)
+- OSINT Search Engines
 
 ## Using Social Media
 
-- Check out this article about [Social Media OSINT](/OSINT/social-media.md)
+- Social Media OSINT
 
 ## Tools
 
-- Lots of tools are available for the OSINT / Recon part, check this article about this [here](/OSINT/tools.md#osint-tools)
+- OSINT / Recon 
 
 
 
@@ -555,7 +550,7 @@ Nmap done: 1 IP address (1 host up) scanned in 22.74 seconds
 
 Next step is to enumerate the services and protocols that showed up in our nmap scan.  
 It is really important to take detailed not during this process.  
-For more info about this checkout [the networking chapter of my pentips](https://csbygb.gitbook.io/pentips/networking/).  
+For more info about this checkout [the networking chapter](https://csbygb.gitbook.io/pentips/networking/).  
 You will find steps for multiple protocols and services.
 
 ### Questions to ask ourselves during enumeration
@@ -594,13 +589,11 @@ You will find steps for multiple protocols and services.
 - On kali we can use searchsploit `searchsploit technology partial-version` for example `searchsploit Samba 2` or `searchsploit Samba`
 - Example `searchsploit drupal 7.54` You will then get a list of exploits or Metasploit modules  
 
-![Searchsploit](../.res/2022-09-05-12-17-38.png)  
 
 - To download an exploit you then just need to do `searchsploit -m 46459 .` with:
   - `46459` name of the exploit (here we took the last one from the screen above)
   - `.` the path to the folder you want to copy it to  
 
-![get exploit](../.res/2022-09-05-12-21-46.png)
 
 ## Vulnerability Sanning with Nessus
 
@@ -730,7 +723,7 @@ This is because the same application can often be used for various purposes, and
 
 ## Bruteforce attacks
 
-- Check out how to use hydra [here](/Tools/passwords-tools.md#hydra)
+- Check out how to use Hydra 
 - We can also use metasploit that has multiple modules for bruteforce attacks
 
 ## Credentials stuffing and password spraying
@@ -817,7 +810,6 @@ The [Windows client authentication process](https://docs.microsoft.com/en-us/win
 
 The security subsystem keeps track of the security policies and accounts that reside on a computer system. In the case of a Domain Controller, these policies and accounts apply to the domain where the Domain Controller is located. These policies and accounts are stored in Active Directory. In addition, the LSA subsystem provides services for checking access to objects, checking user permissions, and generating monitoring messages.  
 
-![Windows Authentication Process Diagram](../.res/2023-04-22-16-15-20.png)  
 
 Local interactive logon is performed by the interaction between the logon process ([WinLogon](https://www.microsoftpressstore.com/articles/article.aspx?p=2228450&seqNum=8)), the logon user interface process (LogonUI), the credential providers, LSASS, one or more authentication packages, and SAM or Active Directory. Authentication packages, in this case, are the Dynamic-Link Libraries (DLLs) that perform authentication checks. For example, for non-domain joined and interactive logins, the authentication package `Msv1_0.dll` is used.
 
@@ -860,9 +852,7 @@ Upon initial logon, LSASS will:
 
 - With Task Manager (requires GUI access)
 
-![Task Manager](.res/2024-01-21-14-17-53.png)
 
-> Image from HTB Academy
 
 A file `lsass.DMP` will be in `C:\Users\loggedonusersdirectory\AppData\Local\Temp`
 
@@ -895,7 +885,6 @@ Windows systems can be assigned to either a workgroup or domain during setup. If
 
 Microsoft introduced a security feature in Windows NT 4.0 to help improve the security of the SAM database against offline software cracking. This is the SYSKEY (syskey.exe) feature, which, when enabled, partially encrypts the hard disk copy of the SAM file so that the password hash values for all local accounts stored in the SAM are encrypted with a key.  
 
-![Credential Manager](../.res/2023-04-22-16-45-56.png)  
 
 Credential Manager is a feature built-in to all Windows operating systems that allows users to save the credentials they use to access various network resources and websites. Saved credentials are stored based on user profiles in each user's Credential Locker. Credentials are encrypted and stored in `C:\Users\[Username]\AppData\Local\Microsoft\[Vault/Credentials]\`  
 
@@ -983,7 +972,7 @@ We can use vssadmin to create a Volume Shadow Copy (VSS) of the C: drive or what
 ### Cracking Hashes & Gaining Credentials
 
 - `sudo hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /usr/share/wordlists/rockyou.txt` Cracking a Single Hash with Hashcat
-- `evil-winrm -i 10.129.201.57  -u  Administrator -H "64f12cddaa88057e06a81b54e73b949b"` pass the hash with evil-winrm (more info about pass-the-hash attacks [here](../windows/pass-hash.md))
+- `evil-winrm -i 10.129.201.57  -u  Administrator -H "64f12cddaa88057e06a81b54e73b949b"` pass the hash with evil-winrm  
 
 ### Credential Hunting in Windows
 
@@ -1236,9 +1225,6 @@ In addition, we have to reconcile all our notes with the documentation we have w
 
 > *Source: Hackthebox Academy*
 
-## Pentest report
-
-- Check out more about pentest report with my article [here](/reporting/pentest-report.md)
 
 
 ## Resources
